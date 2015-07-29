@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eric',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,8 +59,15 @@ WSGI_APPLICATION = 'edjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+	    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	    'NAME': 'eric',
+	    # The following settings are not used with sqlite3:
+	    'USER': 'eric',
+	    'PASSWORD': 'password',
+	    'HOST': 'localhost',
+	    'PORT': '',
     }
 }
 
@@ -81,3 +89,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/eric/Desktop/django-env/edjango/static/'
