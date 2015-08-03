@@ -3,10 +3,10 @@
 	<form class="form-group" method="POST" action="{% url 'user_login_auth' %}" id="loginForm">
 		{% csrf_token %}
 		<div class="form-group">
-			{{ login.email }}
+			{{ loginForm.Email }}
 		</div>
 		<div class="form-group">
-			{{ login.password }}
+			{{ loginForm.Password }}
 		</div>
 		<div>
 			

@@ -9,10 +9,10 @@ class UserLoginForm(forms.ModelForm):
         widgets =   {
                         'Email': forms.fields.EmailInput(attrs={
                                     'class': '',
-                                    'placeholder': '',
+                                    'placeholder': 'Email',
                                 }),
-                        'Password': forms.fields.HiddenInput(attrs={
+                        'Password': forms.PasswordInput(attrs={
                                     'class': '',
-                                    'placeholder': '',
+                                    'placeholder': 'Password',
                                 }),
                     }
