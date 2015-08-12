@@ -13,4 +13,7 @@ def auth_view(request):
     loginForm = UserLoginForm(request.POST)
     if loginForm.is_valid():
         context = {}
-        return redirect('', context)
+        return redirect('/', context)
+    else:
+        print 'request not valid!'
+        return redirect('user_login')

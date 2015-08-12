@@ -11,7 +11,7 @@ class UserLoginForm(forms.ModelForm):
                                     'class': '',
                                     'placeholder': 'Email',
                                 }),
-                        'Password': forms.PasswordInput(attrs={
+                        'Password': forms.widgets.PasswordInput(attrs={
                                     'class': '',
                                     'placeholder': 'Password',
                                 }),

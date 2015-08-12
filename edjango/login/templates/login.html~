@@ -5,6 +5,7 @@
 		<div class="form-group">
 			{{ loginForm.Email }}
 		</div>
+		<br/>
 		<div class="form-group">
 			{{ loginForm.Password }}
 		</div>
