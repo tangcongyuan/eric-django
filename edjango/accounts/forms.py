@@ -1,18 +1,18 @@
 from django import forms
-from accounts.models import User
+from accounts.models import Player
 
 class UserLoginForm(forms.ModelForm):
     
     class Meta:
-        model = User
-        fields = ('Email', 'Password')
+        model = Player
+        fields = ('username', 'password')
         widgets =   {
-                        'Email': forms.fields.EmailInput(attrs={
-                                    'class': '',
-                                    'placeholder': 'Email',
+                        'username': forms.fields.TextInput(attrs={
+                                    'class': 'form-control',
+                                    'placeholder': 'Username',
                                 }),
-                        'Password': forms.widgets.PasswordInput(attrs={
-                                    'class': '',
+                        'password': forms.widgets.PasswordInput(attrs={
+                                    'class': 'form-control',
                                     'placeholder': 'Password',
                                 }),
                     }
