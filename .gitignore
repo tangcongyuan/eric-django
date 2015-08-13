@@ -2,3 +2,4 @@
 *.py~
 *.sqlite3
 **/migration/**
+**/**migration/**
