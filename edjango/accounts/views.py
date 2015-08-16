@@ -10,13 +10,17 @@ def login(request):
     if request.method == 'POST':
         loginForm = UserLoginForm(request.POST)
         context = { 'loginForm': loginForm }
+        #print request.session.modified # False
         if loginForm.is_valid():
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
             user = auth.authenticate(username=username, password=password)
-            
+            #print request.session.modified # False
             if user is not None:
                 auth.login(request, user)
+                #print request.session.modified # True
+                request.session.set_expiry(10)
+                #print request.session.modified # True
                 return redirect('player_loggedIn')
             else:
                 context['playerDoesNotExist'] = 'Please check your username and/or password.'
@@ -32,4 +36,5 @@ def logout(request):
     pass
 
 def loggedIn(request):
+    print request.is_ajax()
     return render(request, 'loggedIn.html')
