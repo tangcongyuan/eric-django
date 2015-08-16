@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from accounts.forms import UserLoginForm
 
 # Create your views here.
@@ -34,7 +35,8 @@ def login(request):
     
 def logout(request):
     pass
-
+    
+@login_required
 def loggedIn(request):
     print request.is_ajax()
     return render(request, 'loggedIn.html')
