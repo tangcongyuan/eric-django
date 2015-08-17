@@ -35,10 +35,10 @@ def login(request):
         return render(request, 'login.html', context)
     
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect('player_login')
     
 @login_required
 def loggedIn(request):
-    print request.is_ajax()
-    auth.logout(request)
-    return redirect('player_login')
+    return render(request, 'loggedIn.html')
+    
