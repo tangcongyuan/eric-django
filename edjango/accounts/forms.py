@@ -1,5 +1,6 @@
 from django import forms
 from accounts.models import Player
+from django.contrib.auth.models import User
 
 class UserLoginForm(forms.ModelForm):
     

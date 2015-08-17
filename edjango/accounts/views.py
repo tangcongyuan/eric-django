@@ -10,11 +10,11 @@ def login(request):
     if request.method == 'POST':
         loginForm = UserLoginForm(request.POST)
         context = { 'loginForm': loginForm }
+        print request.user
         if loginForm.is_valid():
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
             user = auth.authenticate(username=username, password=password)
-            
             if user is not None:
                 auth.login(request, user)
                 return redirect('player_loggedIn')
@@ -29,7 +29,9 @@ def login(request):
         return render(request, 'login.html', context)
     
 def logout(request):
-    pass
+    auth.logout(request)
+    return redirect('player_login')
 
 def loggedIn(request):
+    print request.user
     return render(request, 'loggedIn.html')
