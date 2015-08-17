@@ -12,6 +12,7 @@ def login(request):
         loginForm = UserLoginForm(request.POST)
         context = { 'loginForm': loginForm }
         #print request.session.modified # False
+        print request.user
         if loginForm.is_valid():
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
@@ -39,4 +40,5 @@ def logout(request):
 @login_required
 def loggedIn(request):
     print request.is_ajax()
-    return render(request, 'loggedIn.html')
+    auth.logout(request)
+    return redirect('player_login')
